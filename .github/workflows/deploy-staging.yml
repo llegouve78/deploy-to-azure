@@ -6,13 +6,9 @@ on:
 
 env:
   IMAGE_REGISTRY_URL: ghcr.io
-  ###############################################
-  ### Replace <username> with GitHub username ###
-  ###############################################
   DOCKER_IMAGE_NAME: llegouve78-azure-ttt
   AZURE_WEBAPP_NAME: llegouve78-ttt-app
-  ###############################################
-
+ 
 jobs:
   build:
     if: contains(github.event.pull_request.labels.*.name, 'stage')
