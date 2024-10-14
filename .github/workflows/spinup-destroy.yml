@@ -1,8 +1,6 @@
 name: Configure Azure environment
 
-on:
-  pull_request:
-    types: [labeled]
+on: [push]
 
 env:
   IMAGE_REGISTRY_URL: ghcr.io
@@ -17,7 +15,6 @@ env:
 jobs:
   setup-up-azure-resources:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -50,8 +47,7 @@ jobs:
   destroy-azure-resources:
     runs-on: ubuntu-latest
 
-    if: contains(github.event.pull_request.labels.*.name, 'destroy environment')
-
+ 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
