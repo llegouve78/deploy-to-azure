@@ -1,13 +1,12 @@
 name: Configure Azure environment
 
 on: [push]
-
-
 env:
   IMAGE_REGISTRY_URL: ghcr.io
-  AZURE_RESOURCE_GROUP: llgdevops2
+  AZURE_RESOURCE_GROUP: cd-with-actions2
   AZURE_APP_PLAN: actions-ttt-deployment
-  AZURE_LOCATION: '"East US"'
+  AZURE_LOCATION: '"West Europe"'
+
   AZURE_WEBAPP_NAME: llegouve78-ttt-app
 
 jobs:
@@ -45,8 +44,7 @@ jobs:
   destroy-azure-resources:
     runs-on: ubuntu-latest
 
-    if: contains(github.event.pull_request.labels.*.name, 'destroy environment')
-
+ 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
